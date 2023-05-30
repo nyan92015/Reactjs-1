@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header>
-      <h1>掲示板</h1>
-      <p>スレッドを立てる</p>
+    <header className="header">
+      <h2>掲示板</h2>
+      <Link to="/thread/new" className="buildThread">
+        スレッドを立てる
+      </Link>
     </header>
   );
 };
