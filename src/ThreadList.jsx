@@ -1,29 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const ThreadList = () => {
-  const [threadsData, setThreadsData] = useState([]);
-
-  useEffect(() => {
-    fetch(
-      "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads",
-      {
-        method: "GET",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setThreadsData(data);
-      })
-      .catch((error) => {
-        console.log(error);
-        window.alert("スレッドを読み込めませんでした。");
-      });
-  }, []);
-
+const ThreadList = ({ threadsData }) => {
   const threads = threadsData.map((threadData) => (
-    <li key={threadData.id} className="thread">
+    <Link
+      to={"/thread/" + threadData.id}
+      key={threadData.id}
+      className="thread"
+    >
       {threadData.title}
-    </li>
+    </Link>
   ));
 
   return (
