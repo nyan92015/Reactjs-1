@@ -40,7 +40,7 @@ const Thread = ({ threadsData }) => {
     <div className="container-thread">
       <Link to="/">スレッド一覧へ戻る</Link>
       <h1>{threadTitle}</h1>
-      <ul className="container-comments">{commentList}</ul>
+      <ul className="container-commentList">{commentList}</ul>
       <NewComment thread_id={thread_id} getComments={getComments} />
     </div>
   );

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [threadsData, setThreadsData] = useState([]);
 
-  const getThread = () => {
+  const getThreads = () => {
     fetch(
       "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads",
       {
@@ -28,7 +28,7 @@ function App() {
 
   useEffect(() => {
     // 初回レンダリング時にfetchを実行
-    getThread();
+    getThreads();
   }, []);
 
   return (
@@ -48,7 +48,7 @@ function App() {
         <Route
           exact
           path="/thread/new"
-          element={<NewThread getThread={getThread} />}
+          element={<NewThread getThreads={getThreads} />}
         />
       </Routes>
     </>
